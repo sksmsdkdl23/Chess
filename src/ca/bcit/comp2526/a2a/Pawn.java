@@ -47,6 +47,9 @@ public class Pawn extends ChessPiece {
                     return true;
                 }
                 if (ypos - squarePiece.getYpos() == 1 && xpos - squarePiece.getXpos() == 0) {
+                    if (Board.tile[squarePiece.getYpos() + 1][xpos].hasPiece()) {
+                        return false;
+                    }
                     initialMove = false;
                     return true;
                 }
@@ -59,17 +62,26 @@ public class Pawn extends ChessPiece {
                     return true;
                 }
                 if (ypos - squarePiece.getYpos() == -1 && xpos - squarePiece.getXpos() == 0) {
+                    if (Board.tile[squarePiece.getYpos() - 1][xpos].hasPiece()) {
+                        return false;
+                    }
                     initialMove = false;
                     return true;
                 }
             }
         } else if (this.playerNum == 1) {
             if (ypos - squarePiece.getYpos() == 1 && xpos - squarePiece.getXpos() == 0) {
+                if (Board.tile[squarePiece.getYpos() + 1][xpos].hasPiece()) {
+                    return false;
+                }
                 initialMove = false;
                 return true;
             }
         } else if (this.playerNum == 2) {
             if (ypos - squarePiece.getYpos() == -1 && xpos - squarePiece.getXpos() == 0) {
+                if (Board.tile[squarePiece.getYpos() - 1][xpos].hasPiece()) {
+                    return false;
+                }
                 initialMove = false;
                 return true;
             }
